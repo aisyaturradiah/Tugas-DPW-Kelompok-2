@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modus</title>
+</head>
+<body bgcolor="gold">
+	<input type="text" id="nilai" placeholder="Masukkan Data Anda">
+	<button onclick="modus()">Proses</button>
+	<p id="demo"></p>
+
+
+	<script>
+		function modus(){
+			var data = document.getElementById('nilai').value;
+			hasil = data.split(',');
+			var max = 0;
+			var modus = [];
+			var nilai = {};
+			console.log(hasil);
+			for (let i in hasil) {
+				nilai[hasil[i]] = (nilai[hasil[i]] || 0) + 1;
+				if (nilai[hasil[i]] > max){
+					max = nilai[hasil[i]];
+				}
+			}
+			for (let i in nilai){
+				if (nilai[i] == max){
+					modus.push(i)
+				}
+			}
+			if (max == 1){
+				modus = 'Tidak Ada Modus'
+			}
+			document.getElementById('demo').innerHTML = modus;
+		}
+	</script>
+</body>
+</html>
