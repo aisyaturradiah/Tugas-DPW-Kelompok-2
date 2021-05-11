@@ -6,17 +6,18 @@
     <title>program maximal rapi</title>
     <style>
       h5 {
-        padding-bottom: 10px;
-        text-align: center;
+        padding-bottom: 10px; /*menbahkan padding pada h5*/
+        text-align: center; /*merubah teks h5 berada diposisi tengah tampilan*/
       }
 
       .profil {
-        width: 200px;
-        height: 200px;
+        width: 200px; /*mengatur lebar gambar yang berada dalam kelas profile*/
+        height: 200px; /*mengatur tinggi gambar yang berada dalam kelas profile*/
       }
     </style>
   </head>
   <body>
+    <!-- menampilkan navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#">Rosik Prince Vrindavan</a>
@@ -29,25 +30,26 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Minimal</a>
+              <a class="nav-link" href="minimal.html">Minimal</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Maximal</a>
+              <a class="nav-link active" aria-current="page" href="maksimal.html">Maximal</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Mean</a>
+              <a class="nav-link" href="mean.html">Mean</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Modus</a>
+              <a class="nav-link" href="modus.html">Modus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#develop">About</a>
+              <a class="nav-link" href="develop.html">About</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- menampilkan ruang judul dengan jumbotron -->
     <div class="jumbotron jumbotron-fluid" style="background: rgb(2, 0, 36); background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(101, 78, 163, 1) 0%, rgba(224, 170, 193, 1) 100%)">
       <div class="container text-center" style="color: white">
         <img src="Unijoyo.png.jpg" width="250" alt="profile" style="padding-top: 100px; padding-bottom: 20px" />
@@ -55,6 +57,7 @@
       </div>
     </div>
 
+    <!-- menampilkan judul kolom inputan creat array -->
     <div class="container" style="margin-top: 50px">
       <div class="row">
         <div class="col text-center">
@@ -62,6 +65,7 @@
         </div>
       </div>
 
+      <!-- menampilkan kolom inputan creat array -->
       <div id="container text-center">
         <div style="margin-left: auto">
           <form class="row g-3">
@@ -77,6 +81,7 @@
       </div>
     </div>
 
+    <!-- menampilkan hasil oprrasi array -->
     <div class="jumbotron jumbotron-fluid" style="background-color: rgba(224, 170, 193, 1)">
       <div class="container" style="margin-top: 50px; padding-bottom: 60px">
         <div class="row">
@@ -117,6 +122,7 @@
 
     <script>
       function dosomething() {
+        //fungsi create array
         var CSV = document.getElementById("userCSV").value;
         var stringversion = processArrayString(CSV);
         var floatversion = processArrayFloat(CSV);
@@ -124,21 +130,24 @@
         document.getElementById("outputDiv").innerHTML = "<b>Array</b> = [ " + floatversion + " ]" + "<br>";
 
         var urut = floatversion.sort(function (a, b) {
+          //mengurutkan array
           return a - b;
         });
         var panajang = floatversion.length;
         document.getElementById("urut").innerHTML = "<b>Urut</b> = [ " + urut + " ]" + "<br>";
 
-        var max = Math.max.apply(null, floatversion);
+        var max = Math.max.apply(null, floatversion); //menentukan nilai miximal
         document.getElementById("max").innerHTML = "<b>Angka terbesar</b> = " + max + "<br>";
       }
 
       function processArrayString(someString) {
+        //fungsi untuk menjadikan data inputan menjadi array bertipe string
         var splitString = someString.split(",");
         return splitString;
       }
 
       function processArrayFloat(someString) {
+        //fungsi untuk menjadikan data inputan menjadi array bertipe float
         var splitFloat = someString.split(",");
         for (x in splitFloat) {
           splitFloat[x] = parseFloat(splitFloat[x]);
